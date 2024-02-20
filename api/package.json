@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@redwoodjs/api": "6.6.4",
-    "@redwoodjs/graphql-server": "6.6.4"
+    "@redwoodjs/auth-dbauth-api": "6.6.4",
+    "@redwoodjs/graphql-server": "6.6.4",
+    "firebase": "^10.8.0",
+    "stripe": "^14.17.0"
   }
 }

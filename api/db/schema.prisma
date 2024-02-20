@@ -5,7 +5,7 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
@@ -14,11 +14,37 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model User {
+  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  name                String
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  createdAt DateTime  @default(now())
+}
+
+model Product {
+  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  name                String
+  price               String
+  image               String
+  creatorId           String
+  createdAt DateTime  @default(now())
+}
+
+model Transaction {
+  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  productIds          String[]
+  userId              String
+  status              TransactionStatus
+  price               String
+  createdAt DateTime  @default(now())
+}
+
+enum TransactionStatus {
+  pending
+  success
+  failed
 }
