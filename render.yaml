@@ -34,8 +34,8 @@ services:
   env: node
   region: oregon
   preDeployCommand: corepack enable
-  buildCommand: corepack enable | yarn && yarn rw build api
-  startCommand: corepack enable | yarn rw deploy render api --database none
+  buildCommand: corepack enable; yarn && yarn rw build api
+  startCommand: corepack enable; yarn rw deploy render api --database none
   envVars:
   - key: NODE_VERSION
     value: 18
