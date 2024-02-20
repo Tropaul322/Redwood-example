@@ -4846,6 +4846,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@redwoodjs/auth-netlify-setup@npm:6.6.4":
+  version: 6.6.4
+  resolution: "@redwoodjs/auth-netlify-setup@npm:6.6.4"
+  dependencies:
+    "@babel/runtime-corejs3": "npm:7.23.6"
+    "@redwoodjs/cli-helpers": "npm:6.6.4"
+    core-js: "npm:3.34.0"
+  checksum: 1e48c0bbe0ac7ad93b1eac7dd31cb7735eb3d42016a720e7adc3ec50d2cc97a0f8aac650f850d86aa26d2e00280150cc430e0a1a04ff7dc4bb4aa010a3c489d0
+  languageName: node
+  linkType: hard
+
 "@redwoodjs/auth@npm:6.6.4":
   version: 6.6.4
   resolution: "@redwoodjs/auth@npm:6.6.4"
@@ -18555,6 +18566,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/auth-dbauth-setup": "npm:6.6.4"
+    "@redwoodjs/auth-netlify-setup": "npm:6.6.4"
     "@redwoodjs/core": "npm:6.6.4"
     prettier-plugin-tailwindcss: "npm:0.4.1"
   languageName: unknown
