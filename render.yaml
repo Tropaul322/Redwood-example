@@ -8,7 +8,7 @@ services:
 - name: redwood-web
   type: web
   env: static
-  buildCommand: yarn install && yarn rw deploy render web
+  buildCommand: corepack enable && yarn install && yarn rw deploy render web
   staticPublishPath: ./web/dist
   envVars:
   - key: NODE_VERSION
@@ -23,7 +23,7 @@ services:
 # example:
 #   destination: https://myredwoodproject-api.onrender.com/*
 #####
-    destination: replace_with_api_url/*
+    destination: https://redwood-api-7ddu.onrender.com/*
   - type: rewrite
     source: /*
     destination: /200.html
@@ -33,8 +33,8 @@ services:
   plan: free
   env: node
   region: oregon
-  buildCommand: yarn && yarn rw build api
-  startCommand: yarn rw deploy render api
+  buildCommand: corepack enable yarn && yarn rw build api
+  startCommand: corepack enable yarn rw deploy render api
   envVars:
   - key: NODE_VERSION
     value: 18
