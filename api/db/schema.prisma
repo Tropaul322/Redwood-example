@@ -5,18 +5,17 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 generator client {
-  previewFeatures = ["mongodb"]
   provider      = "prisma-client-js"
-  binaryTargets = "native"
 }
 
 model User {
-  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                  String            @id @default(cuid())
   name                String
   email               String    @unique
   hashedPassword      String
@@ -27,7 +26,7 @@ model User {
 }
 
 model Product {
-  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                  String            @id @default(cuid())
   name                String
   price               String
   image               String
@@ -36,7 +35,7 @@ model Product {
 }
 
 model Transaction {
-  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                  String            @id @default(cuid())
   productIds          String[]
   userId              String
   status              TransactionStatus

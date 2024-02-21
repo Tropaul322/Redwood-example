@@ -3,7 +3,6 @@ import type { QueryResolvers, MutationResolvers } from 'types/graphql'
 
 import { db } from 'src/lib/db'
 import { stripe } from 'src/lib/stripe'
-import { validate } from '@redwoodjs/api'
 
 export const myTransactions: QueryResolvers['myTransactions'] = async () => {
   const data = await db.transaction.findMany({
